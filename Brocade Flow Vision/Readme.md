@@ -12,13 +12,13 @@ Flow Vision是Brocade上的用来诊断FC SAN 工具，主要有三个功能
 ### Flow Vision操作
 Flow Vision 监测的对象是flow，一般有下面操作：
 1. 通过指定上面所说的这些参数，create flow
-2. 指定flow的属性，是monitor IO，是copy流量，还是制造流量
+2. 指定flow的属性，是monitor IO，是copy流量，还是generate流量
 3. Activate flow
-4. Show出collected到的data
+4. Show出collect到的data
 
 <br/>
 
-#### `Flow Monitor`
+#### **Flow Monitor**
 Flow monitor 最为直观，主要是monitor flow上的各种statistics, 包括：  
 - Frame statistics(比如 frame count & rate)
 - Throughput statistics(byte/sec)
@@ -39,14 +39,14 @@ flow –-create lunFlow1 -feature monitor –ingrport 5 -srcdev 0x010502 -dstdev
 ```
 <br/>
 
-#### `Flow Generator`
+#### **Flow Generator**
 可在Fabric中配置多个sim port，并在sim port之间模拟流量，不需要连接真实的设备。
 ```
 flow –-create flowCase1 –feature generator -ingrPort 1/1 –srcDev 0x040100 –dstDev 0x050200
 ```
 <br/>
 
-#### `Flow Mirror`
+#### **Flow Mirror**
 把指定flow上的流量mirror一份出来，不影响原来的流量，相当于抓包。
 ##### eg:
 在fc device 0x040500 和 0x010200 之间的 通过port 1/5的双向流量mirror下来 
