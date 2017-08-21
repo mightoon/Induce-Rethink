@@ -8,9 +8,12 @@
 > 可以抓到unity CNA发给cisco switch的pause帧  
 > 但在cisco switch连接host的port并没有抓到pause, 并且可以看到在ingress port处产生了dropped packets  
 > 因过多的re-transmission导致了performance下降  
-> 而换作是Juniper switch, 没有明显的performance降低的问题
+> 而换作是Juniper switch, 没有明显的performance降低的问题  
 
-当host端连接多个initiator到switch，并且开启多个线程run IO, 而storage端却只有一个port连接到iSCSI array的情况非常多见。这就带来了congestion的可能。普通ethernet上面，如果交换机或者array CNA支持802.3x的话，那么会开启standard pause 功能。如上图中host不断同时发起large sequential write IO, storage是可以感受到congestion的，于是CNA会向switch发standard pause, 让switch停止向它发数据, 这些pause帧也被捕获。
+当host端连接多个initiator到switch，并且开启多个线程run IO, 而storage端却只有一个port连接到iSCSI array的情况非常多见。这就带来了congestion的可能。普通ethernet上面，如果交换机或者array CNA支持802.3x的话，那么会开启standard pause 功能。如下图中host不断同时发起large sequential write IO, storage是可以感受到congestion的，于是CNA会向switch发standard pause, 让switch停止向它发数据, 这些pause帧也被捕获。
+
+
+![topo](iSCSI_pete.png)
 
 #### 分析
 首先，应该明确iSCSI 是要跑在传统ethernet上还是跑在DCB上。
