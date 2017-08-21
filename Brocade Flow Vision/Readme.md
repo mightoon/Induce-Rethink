@@ -24,7 +24,7 @@ Flow monitor 最为直观，主要是monitor flow上的各种statistics, 包括�
 - Throughput statistics(byte/sec)
 - I/O statistics(I/O count, IOPS)
 
-##### eg：
+##### eg:
 监测特定端口上SCSI frame 的数量：
 ```
 flow --create scsicsflow -feature monitor -egrport 9 –frametype scsicheckstatus
@@ -41,6 +41,8 @@ flow –-create lunFlow1 -feature monitor –ingrport 5 -srcdev 0x010502 -dstdev
 
 #### **Flow Generator**
 可在Fabric中配置多个sim port，并在sim port之间模拟流量，不需要连接真实的设备。
+![flow mirror](http://www.brocade.com/content/html/en/administration-guide/fos-741-flow/GUID-1F731060-CBAF-4B5E-BCDC-8C68702BB9AB-output_low.png)
+
 ```
 flow –-create flowCase1 –feature generator -ingrPort 1/1 –srcDev 0x040100 –dstDev 0x050200
 ```
