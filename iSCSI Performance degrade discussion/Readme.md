@@ -10,7 +10,7 @@
 > 因过多的re-transmission导致了performance下降  
 > 而换作是Juniper switch, 没有明显的performance降低的问题  
 
-当host端连接多个initiator到switch，并且开启多个线程run IO, 而storage端却只有一个port连接到iSCSI array的情况非常多见。这就带来了congestion的可能。普通ethernet上面，如果交换机或者array CNA支持802.3x的话，那么会开启standard pause 功能。如下图中host不断同时发起large sequential write IO, storage是可以感受到congestion的，于是CNA会向switch发standard pause, 让switch停止向它发数据, 这些pause帧也被捕获。
+当host端连接多个 initiator 到 switch，并且开启多个线程 run IO, 而 storage 端却只有一个 port 连接到 iSCSI array 的情况非常多见，这就带来了congestion 的可能。传统 Ethernet 上面，如果交换机或者 array CNA 支持802.3x的话，那么会开启 standard pause 功能。如下图中 host 不断同时发起 large sequential write IO, storage 是可以感受到 congestion 的，于是 CNA 会向 switch 发 standard pause, 让 switch 停止向它发数据, 这些 pause 帧也被捕获。
 
 
 ![topo](iSCSI_pete.png)
