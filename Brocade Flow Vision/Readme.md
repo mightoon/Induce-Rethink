@@ -8,7 +8,7 @@ Flow Vision 是 Brocade 上的用来诊断 FC SAN 的工具，主要有三个功
 ### 关于 Flow
 `Flow`在这里指的是具有相同特征的一系列frame，包含两方面信息：一是port，比如他们都要通过同一个ingress port 或 egress port，二是frame内容信息，比如他都具有相同的source ID，Des ID，LUN …
 
-![flow](flow.PNG)
+<img src="flow.PNG" width=75%>
 
 ### Flow Vision 操作
 Flow Vision 监测的对象是 flow, 一般有下面操作
