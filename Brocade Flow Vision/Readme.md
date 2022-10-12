@@ -8,7 +8,7 @@ Flow Vision 是 Brocade 上的用来诊断 FC SAN 的工具，主要有三个功
 ### 关于 Flow
 `Flow`在这里指的是具有相同特征的一系列frame，包含两方面信息：一是port，比如他们都要通过同一个ingress port 或 egress port，二是frame内容信息，比如他都具有相同的source ID，Des ID，LUN …
 
-![flow](http://www.brocade.com/content/html/en/administration-guide/fos-740-flow/GUID-26564051-E3AD-4911-A1E8-9F3FC994D607-output_low.png)
+![flow](flow.PNG)
 
 ### Flow Vision 操作
 Flow Vision 监测的对象是 flow, 一般有下面操作
@@ -45,7 +45,7 @@ flow –-create lunFlow1 -feature monitor –ingrport 5 -srcdev 0x010502 -dstdev
 #### **Flow Generator**
 可在Fabric中配置多个sim port, 并在sim port之间模拟流量，从而不需要连接真实的设备。
 
-![flow mirror](http://www.brocade.com/content/html/en/administration-guide/fos-741-flow/GUID-1F731060-CBAF-4B5E-BCDC-8C68702BB9AB-output_low.png)
+![flow mirror](flow-generator.PNG)
 
 ```
 flow –-create flowCase1 –feature generator -ingrPort 1/1 –srcDev 0x040100 –dstDev 0x050200
